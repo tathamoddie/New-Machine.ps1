@@ -41,6 +41,7 @@ if (-not (Test-Path $SshKeyPath))
 }
 
 "Setting Pageant shortcut to load the private key automatically"
+# This way, I can type Win+pageant+Enter, and it's all configured
 $WshShell = New-Object -ComObject WScript.Shell
 $PageantShortcut = $WshShell.CreateShortcut((Join-Path ([Environment]::GetFolderPath("CommonStartMenu")) Programs\PuTTY\Pageant.lnk))
 $PageantShortcut.Arguments = "-i $SshKeyPath"
