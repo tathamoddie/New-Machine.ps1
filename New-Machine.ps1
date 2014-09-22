@@ -27,6 +27,8 @@ Install-ChocoIfNotAlready git.install
 Install-ChocoIfNotAlready putty.install
 Install-ChocoIfNotAlready SublimeText3
 Install-ChocoIfNotAlready SublimeText3.PackageControl
+Install-ChocoIfNotAlready fiddler4
+Install-ChocoIfNotAlready resharper
 
 $OneDriveRoot = (gi HKCU:\Software\Microsoft\Windows\CurrentVersion\SkyDrive).GetValue('UserFolder')
 if (-not (Test-Path $OneDriveRoot))
