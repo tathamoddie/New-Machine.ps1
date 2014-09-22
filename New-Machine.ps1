@@ -49,5 +49,15 @@ $PageantShortcut.Save()
 "Setting plink.exe as GIT_SSH"
 $PuttyDirectory = $PageantShortcut.WorkingDirectory
 $PlinkPath = Join-Path $PuttyDirectory plink.exe
-[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath)
+[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath, [EnvironmentVariableTarget]::User)
 $env:GIT_SSH = $PlinkPath
+
+"Setting git identity"
+git config --global user.name "Tatham Oddie"
+git config --global user.email "tatham@oddie.com.au"
+
+if ((& git config push.default) -eq $null)
+{
+    "Setting git push behaviour to squelch the 2.0 upgrade message"
+    git config --global push.default simple
+}
