@@ -64,3 +64,8 @@ if ((& git config push.default) -eq $null)
     "Setting git push behaviour to squelch the 2.0 upgrade message"
     git config --global push.default simple
 }
+
+"Setting git aliases"
+git config --global alias.st "status"
+git config --global alias.df "diff"
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
