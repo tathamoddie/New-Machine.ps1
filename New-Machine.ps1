@@ -68,5 +68,6 @@ if ((& git config push.default) -eq $null)
 
 "Setting git aliases"
 git config --global alias.st "status"
+git config --global alias.co "checkout"
 git config --global alias.df "diff"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
