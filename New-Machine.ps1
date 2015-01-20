@@ -23,6 +23,7 @@ function Install-ChocoIfNotAlready($name) {
     }
 }
 
+Install-ChocoIfNotAlready skype
 Install-ChocoIfNotAlready git.install
 Install-ChocoIfNotAlready putty.install
 Install-ChocoIfNotAlready SublimeText3
