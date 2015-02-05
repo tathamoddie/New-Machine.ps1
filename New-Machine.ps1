@@ -79,5 +79,8 @@ if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
     Add-Content $PROFILE "`r`n`r`nSet-Alias -Name st -Value (Join-Path `$env:ProgramFiles 'Sublime Text 3\sublime_text.exe')"
 }
 
+"Enabling Office smileys"
+Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\15.0\Common\Feedback -Name Enabled -Value 1
+
 "Reloading PS profile"
 . $PROFILE
