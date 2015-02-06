@@ -11,15 +11,15 @@ else
 }
 
 $ExistingChocoPackages = (& choco list -localonly) | % { $_.Split(' ')[0] }
-function Install-ChocoIfNotAlready($name) {
-    if ($ExistingChocoPackages -contains $name)
+function Install-ChocoIfNotAlready() {
+    if ($ExistingChocoPackages -contains $($args[0]))
     {
-        "$name already installed"
+        "($args[0]) already installed"
     }
     else
     {
-        "Installing $name"
-        & choco install $name
+        "Installing ($args[0])"
+        & choco install $args
     }
 }
 
