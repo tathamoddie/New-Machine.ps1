@@ -59,8 +59,8 @@ $PlinkPath = Join-Path $PuttyDirectory plink.exe
 $env:GIT_SSH = $PlinkPath
 
 "Setting git identity"
-git config --global user.name "Tatham Oddie"
-git config --global user.email "tatham@oddie.com.au"
+git config --global user.name "Stephen Price"
+git config --global user.email "stephen@lythixdesigns.com"
 
 if ((& git config push.default) -eq $null)
 {
