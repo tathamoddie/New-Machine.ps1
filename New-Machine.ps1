@@ -19,19 +19,19 @@ function Install-ChocoIfNotAlready($name) {
     else
     {
         "Installing $name"
-        & choco install $name
+        & choco install $name -y
     }
 }
 
-Install-ChocoIfNotAlready skype -y
-Install-ChocoIfNotAlready git.install -y
-Install-ChocoIfNotAlready putty.install -y
-Install-ChocoIfNotAlready SublimeText3 -y
-Install-ChocoIfNotAlready SublimeText3.PackageControl -y
-Install-ChocoIfNotAlready fiddler4 -y
-Install-ChocoIfNotAlready resharper -y
-Install-ChocoIfNotAlready Console2 -y
-Install-ChocoIfNotAlready filezilla -y
+Install-ChocoIfNotAlready skype
+Install-ChocoIfNotAlready git.install
+Install-ChocoIfNotAlready putty.install
+Install-ChocoIfNotAlready SublimeText3
+Install-ChocoIfNotAlready SublimeText3.PackageControl
+Install-ChocoIfNotAlready fiddler4
+Install-ChocoIfNotAlready resharper
+Install-ChocoIfNotAlready Console2
+Install-ChocoIfNotAlready filezilla
 
 #Install-ChocoIfNotAlready nodejs.install
 #Install-ChocoIfNotAlready Jump-Location
