@@ -23,6 +23,7 @@ function Install-ChocoIfNotAlready($name) {
     }
 }
 
+Install-ChocoIfNotAlready google-chrome-x64
 Install-ChocoIfNotAlready skype
 Install-ChocoIfNotAlready git.install
 Install-ChocoIfNotAlready putty.install
