@@ -19,7 +19,7 @@ function Install-ChocoIfNotAlready($name) {
     else
     {
         "Installing $name"
-        & choco install $name
+        & choco install $name -y
     }
 }
 
