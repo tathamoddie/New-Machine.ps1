@@ -85,7 +85,14 @@ if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
 }
 
 "Enabling Office smileys"
-Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\15.0\Common\Feedback -Name Enabled -Value 1
+if (Test-Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback)
+{
+    Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback -Name Enabled -Value 1
+}
+else
+{
+    Write-Warning "Couldn't find a compatible install of Office"
+}
 
 "Reloading PS profile"
 . $PROFILE
