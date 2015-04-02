@@ -34,7 +34,11 @@ Install-ChocoIfNotAlready resharper
 Install-ChocoIfNotAlready nodejs.install
 Install-ChocoIfNotAlready Jump-Location
 
-$OneDriveRoot = (gi HKCU:\Software\Microsoft\Windows\CurrentVersion\SkyDrive).GetValue('UserFolder')
+if (-not (Test-Path HKCU:\Software\Microsoft\OneDrive))
+{
+    throw "Couldn't find a compatible install of OneDrive"
+}
+$OneDriveRoot = (gi HKCU:\Software\Microsoft\OneDrive).GetValue('UserFolder')
 if (-not (Test-Path $OneDriveRoot))
 {
     throw "Couldn't find the OneDrive root"
