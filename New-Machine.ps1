@@ -30,6 +30,7 @@ Install-ChocoIfNotAlready Console2
 Install-ChocoIfNotAlready SublimeText3
 Install-ChocoIfNotAlready SublimeText3.PackageControl
 Install-ChocoIfNotAlready fiddler4
+Install-ChocoIfNotAlready beyondcompare
 Install-ChocoIfNotAlready resharper
 Install-ChocoIfNotAlready filezilla
 
