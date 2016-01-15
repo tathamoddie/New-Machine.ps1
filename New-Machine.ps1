@@ -44,6 +44,12 @@ git config --global alias.co "checkout"
 git config --global alias.df "diff"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
+Write-Progress -Activity "Checking for Git Credential Manager"
+if ((& git config credential.helper) -ne "manager")
+{
+    Write-Warning "Git Credential Manager for Windows is missing. Install it manually from https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases"
+}
+
 Write-Progress -Activity "Setting PS aliases"
 if ((Get-Item $PROFILE -ErrorAction SilentlyContinue) -eq $null) {
     New-Item $PROFILE -Force
