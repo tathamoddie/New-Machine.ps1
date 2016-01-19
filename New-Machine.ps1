@@ -52,7 +52,7 @@ if ((& git config credential.helper) -ne "manager")
 }
 
 Write-Progress -Activity "Setting PS aliases"
-if ((Get-Item $PROFILE -ErrorAction SilentlyContinue) -eq $null) {
+if (-not (Test-Path $PROFILE)) {
     New-Item $PROFILE -Force
 }
 if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
