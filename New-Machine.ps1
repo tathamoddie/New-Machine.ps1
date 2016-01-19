@@ -22,7 +22,8 @@ if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
     "SublimeText3",
     "SublimeText3.PackageControl",
     "fiddler4",
-    "Jump-Location"
+    "Jump-Location",
+    "snagit"
 ) | % {
     Write-Progress -Activity "Installing $_"
     Install-Package -Name $_ -ProviderName chocolatey
