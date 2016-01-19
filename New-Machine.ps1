@@ -78,5 +78,11 @@ else
     Write-Warning "Couldn't find a compatible install of Office"
 }
 
+Write-Progress "Hiding desktop icons"
+if ((Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\).HideIcons -ne 1) {
+    Set-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ -Name HideIcons -Value 1
+    Get-Process explorer | Stop-Process
+}
+
 Write-Progress -Activity "Reloading PS profile"
 . $PROFILE
