@@ -38,8 +38,13 @@ if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
 }
 
 Write-Progress -Activity "Setting git identity"
-git config --global user.name "Tatham Oddie"
-git config --global user.email "tatham@oddie.com.au"
+$userName = (Get-WmiObject Win32_Process -Filter "Handle = $Pid").GetRelated("Win32_LogonSession").GetRelated("Win32_UserAccount").FullName
+Write-Verbose "Setting git user.name to $userName"
+git config --global user.name $userName
+# This seems to the be MSA that was first used during Windows setup
+$userEmail = (Get-WmiObject -Class Win32_ComputerSystem).PrimaryOwnerName
+Write-Verbose "Setting git user.email to $userEmail"
+git config --global user.email $userEmail
 
 Write-Progress -Activity "Setting git push behaviour to squelch the 2.0 upgrade message"
 if ((& git config push.default) -eq $null) {
