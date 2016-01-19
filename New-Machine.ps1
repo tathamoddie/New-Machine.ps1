@@ -84,5 +84,11 @@ if ((Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\A
     Get-Process explorer | Stop-Process
 }
 
+Write-Progress "Enabling PowerShell on Win+X"
+if ((Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\).DontUsePowerShellOnWinX -ne 0) {
+    Set-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ -Name DontUsePowerShellOnWinX -Value 0
+    Get-Process explorer | Stop-Process
+}
+
 Write-Progress -Activity "Reloading PS profile"
 . $PROFILE
