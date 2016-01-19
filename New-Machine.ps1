@@ -16,10 +16,10 @@ if (-not (Test-Path $PROFILE)) {
     New-Item $PROFILE -Force
 }
 
-Write-Progress -Activity "Ensure chocolatey is available"
+Write-Progress -Activity "Ensuring Chocolatey is available"
 $null = Get-PackageProvider -Name chocolatey
 
-Write-Progress -Activity "Ensure chocolatey is trusted"
+Write-Progress -Activity "Ensuring Chocolatey is trusted"
 if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
     Set-PackageSource -Name chocolatey -Trusted
 }
@@ -41,9 +41,8 @@ Write-Progress -Activity "Setting git identity"
 git config --global user.name "Tatham Oddie"
 git config --global user.email "tatham@oddie.com.au"
 
-if ((& git config push.default) -eq $null)
-{
-    Write-Progress -Activity "Setting git push behaviour to squelch the 2.0 upgrade message"
+Write-Progress -Activity "Setting git push behaviour to squelch the 2.0 upgrade message"
+if ((& git config push.default) -eq $null) {
     git config --global push.default simple
 }
 
@@ -54,8 +53,7 @@ git config --global alias.df "diff"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 Write-Progress -Activity "Checking for Git Credential Manager"
-if ((& git config credential.helper) -ne "manager")
-{
+if ((& git config credential.helper) -ne "manager") {
     Write-Warning "Git Credential Manager for Windows is missing. Install it manually from https://github.com/Microsoft/Git-Credential-Manager-for-Windows/releases"
 }
 
@@ -65,16 +63,13 @@ if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
 }
 
 Write-Progress -Activity "Enabling Office smileys"
-if (Test-Path HKCU:\Software\Microsoft\Office\16.0)
-{
-    if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback))
-    {
+if (Test-Path HKCU:\Software\Microsoft\Office\16.0) {
+    if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback)) {
         New-Item HKCU:\Software\Microsoft\Office\16.0\Common\Feedback -ItemType Directory
     }
     Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback -Name Enabled -Value 1
 }
-else
-{
+else {
     Write-Warning "Couldn't find a compatible install of Office"
 }
 
