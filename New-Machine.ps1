@@ -11,6 +11,11 @@ if (-not $IsAdmin) {
 Write-Progress -Activity "Setting exeuction policy"
 Set-ExecutionPolicy RemoteSigned
 
+Write-Progress -Activity "Ensuring PS profile exists"
+if (-not (Test-Path $PROFILE)) {
+    New-Item $PROFILE -Force
+}
+
 Write-Progress -Activity "Ensure chocolatey is available"
 $null = Get-PackageProvider -Name chocolatey
 
@@ -55,9 +60,6 @@ if ((& git config credential.helper) -ne "manager")
 }
 
 Write-Progress -Activity "Setting PS aliases"
-if (-not (Test-Path $PROFILE)) {
-    New-Item $PROFILE -Force
-}
 if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
     Add-Content $PROFILE "`r`n`r`nSet-Alias -Name st -Value (Join-Path `$env:ProgramFiles 'Sublime Text 3\sublime_text.exe')"
 }
