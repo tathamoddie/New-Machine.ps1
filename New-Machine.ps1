@@ -1,4 +1,7 @@
-﻿$ErrorActionPreference = 'Stop';
+﻿[CmdletBinding()]
+param ()
+
+$ErrorActionPreference = 'Stop';
 
 $IsAdmin = (New-Object System.Security.Principal.WindowsPrincipal([System.Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([System.Security.Principal.WindowsBuiltInRole]::Administrator)
 if (-not $IsAdmin) {
