@@ -26,9 +26,9 @@ function Install-ChocoIfNotAlready($name) {
 #Install-ChocoIfNotAlready skype
 #Install-ChocoIfNotAlready git.install
 Install-ChocoIfNotAlready putty.install
-Install-ChocoIfNotAlready Console2
-Install-ChocoIfNotAlready SublimeText3
-Install-ChocoIfNotAlready SublimeText3.PackageControl
+#Install-ChocoIfNotAlready Console2
+#Install-ChocoIfNotAlready SublimeText3
+#Install-ChocoIfNotAlready SublimeText3.PackageControl
 Install-ChocoIfNotAlready fiddler4
 Install-ChocoIfNotAlready beyondcompare
 Install-ChocoIfNotAlready resharper
