@@ -69,6 +69,7 @@ if ($env:Path.Contains("git"))
 {
 
 "Setting git identity"
+git status
 git config --global user.name "Stephen Price"
 git config --global user.email "stephen@lythixdesigns.com"
 
