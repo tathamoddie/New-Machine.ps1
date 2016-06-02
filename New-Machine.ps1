@@ -95,5 +95,5 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 #"Enabling Office smileys"
 #Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\15.0\Common\Feedback -Name Enabled -Value 1
 
-"Reloading PS profile"
-. $PROFILE
+#"Reloading PS profile"
+#. $PROFILE
