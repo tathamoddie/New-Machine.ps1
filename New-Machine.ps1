@@ -40,11 +40,11 @@ Install-ChocoIfNotAlready filezilla
 #Install-ChocoIfNotAlready nodejs.install
 #Install-ChocoIfNotAlready Jump-Location
 
-$OneDriveRoot = (gi HKCU:\Software\Microsoft\Windows\CurrentVersion\SkyDrive).GetValue('UserFolder')
-if (-not (Test-Path $OneDriveRoot))
-{
-    throw "Couldn't find the OneDrive root"
-}
+#$OneDriveRoot = (gi HKCU:\Software\Microsoft\Windows\CurrentVersion\SkyDrive).GetValue('UserFolder')
+#if (-not (Test-Path $OneDriveRoot))
+#{
+#    throw "Couldn't find the OneDrive root"
+#}
 
 #$SshKeyPath = Join-Path $OneDriveRoot Tools\ssh\id.ppk
 #if (-not (Test-Path $SshKeyPath))
@@ -81,10 +81,10 @@ git config --global alias.co "checkout"
 git config --global alias.df "diff"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
-"Setting PS aliases"
-if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
-    Add-Content $PROFILE "`r`n`r`nSet-Alias -Name st -Value (Join-Path `$env:ProgramFiles 'Sublime Text 3\sublime_text.exe')"
-}
+#"Setting PS aliases"
+#if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
+#    Add-Content $PROFILE "`r`n`r`nSet-Alias -Name st -Value (Join-Path `$env:ProgramFiles 'Sublime Text 3\sublime_text.exe')"
+#}
 
 #"Enabling Office smileys"
 #Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\15.0\Common\Feedback -Name Enabled -Value 1
