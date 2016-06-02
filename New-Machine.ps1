@@ -27,6 +27,7 @@ function Install-ChocoIfNotAlready($name) {
 #Install-ChocoIfNotAlready git.install
 Install-ChocoIfNotAlready putty.install
 Install-ChocoIfNotAlready cmder
+Install-ChocoIfNotAlready visualstudiocode
 #Install-ChocoIfNotAlready Console2
 #Install-ChocoIfNotAlready SublimeText3
 #Install-ChocoIfNotAlready SublimeText3.PackageControl
