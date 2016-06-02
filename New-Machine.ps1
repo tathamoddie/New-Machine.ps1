@@ -28,6 +28,7 @@ function Install-ChocoIfNotAlready($name) {
 Install-ChocoIfNotAlready putty.install
 Install-ChocoIfNotAlready cmder
 Install-ChocoIfNotAlready visualstudiocode
+Install-ChocoIfNotAlready git
 #Install-ChocoIfNotAlready Console2
 #Install-ChocoIfNotAlready SublimeText3
 #Install-ChocoIfNotAlready SublimeText3.PackageControl
@@ -45,24 +46,24 @@ if (-not (Test-Path $OneDriveRoot))
     throw "Couldn't find the OneDrive root"
 }
 
-$SshKeyPath = Join-Path $OneDriveRoot Tools\ssh\id.ppk
-if (-not (Test-Path $SshKeyPath))
-{
-    throw "Couldn't find SSH key at $SshKeyPath"
-}
+#$SshKeyPath = Join-Path $OneDriveRoot Tools\ssh\id.ppk
+#if (-not (Test-Path $SshKeyPath))
+#{
+#    throw "Couldn't find SSH key at $SshKeyPath"
+#}
 
-"Setting Pageant shortcut to load the private key automatically"
+#"Setting Pageant shortcut to load the private key automatically"
 # This way, I can type Win+pageant+Enter, and it's all configured
-$WshShell = New-Object -ComObject WScript.Shell
-$PageantShortcut = $WshShell.CreateShortcut((Join-Path ([Environment]::GetFolderPath("CommonStartMenu")) Programs\PuTTY\Pageant.lnk))
-$PageantShortcut.Arguments = "-i $SshKeyPath"
-$PageantShortcut.Save()
+#$WshShell = New-Object -ComObject WScript.Shell
+#$PageantShortcut = $WshShell.CreateShortcut((Join-Path ([Environment]::GetFolderPath("CommonStartMenu")) Programs\PuTTY\Pageant.lnk))
+#$PageantShortcut.Arguments = "-i $SshKeyPath"
+#$PageantShortcut.Save()
 
-"Setting plink.exe as GIT_SSH"
-$PuttyDirectory = $PageantShortcut.WorkingDirectory
-$PlinkPath = Join-Path $PuttyDirectory plink.exe
-[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath, [EnvironmentVariableTarget]::User)
-$env:GIT_SSH = $PlinkPath
+#"Setting plink.exe as GIT_SSH"
+#$PuttyDirectory = $PageantShortcut.WorkingDirectory
+#$PlinkPath = Join-Path $PuttyDirectory plink.exe
+#[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath, [EnvironmentVariableTarget]::User)
+#$env:GIT_SSH = $PlinkPath
 
 "Setting git identity"
 git config --global user.name "Stephen Price"
