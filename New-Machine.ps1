@@ -65,13 +65,13 @@ Install-ChocoIfNotAlready filezilla
 #[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath, [EnvironmentVariableTarget]::User)
 #$env:GIT_SSH = $PlinkPath
 
-$git = "C:\Program Files (x86)\Git\bin\git.exe" 
+if ($env:Path.Contains("git"))
+{
 
 "Setting git identity"
-$git config --global user.name "Stephen Price"
-$git config --global user.email "stephen@lythixdesigns.com"
+git config --global user.name "Stephen Price"
+git config --global user.email "stephen@lythixdesigns.com"
 
-"done"
 if ((& git config push.default) -eq $null)
 {
     "Setting git push behaviour to squelch the 2.0 upgrade message"
@@ -83,6 +83,8 @@ git config --global alias.st "status"
 git config --global alias.co "checkout"
 git config --global alias.df "diff"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+
+}
 
 #"Setting PS aliases"
 #if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
