@@ -65,10 +65,13 @@ Install-ChocoIfNotAlready filezilla
 #[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath, [EnvironmentVariableTarget]::User)
 #$env:GIT_SSH = $PlinkPath
 
-"Setting git identity"
-git config --global user.name "Stephen Price"
-git config --global user.email "stephen@lythixdesigns.com"
+$git = "C:\Program Files (x86)\Git\bin\git.exe" 
 
+"Setting git identity"
+$git config --global user.name "Stephen Price"
+$git config --global user.email "stephen@lythixdesigns.com"
+
+"done"
 if ((& git config push.default) -eq $null)
 {
     "Setting git push behaviour to squelch the 2.0 upgrade message"
