@@ -26,7 +26,8 @@ function Install-ChocoIfNotAlready($name) {
 #Install-ChocoIfNotAlready skype
 #Install-ChocoIfNotAlready git.install
 Install-ChocoIfNotAlready putty.install
-Install-ChocoIfNotAlready cmder
+#Install-ChocoIfNotAlready cmder
+Install-ChocoIfNotAlready conemu
 Install-ChocoIfNotAlready visualstudiocode
 Install-ChocoIfNotAlready git
 #Install-ChocoIfNotAlready Console2
