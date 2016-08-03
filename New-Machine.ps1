@@ -43,7 +43,6 @@ Install-ChocoIfNotAlready 7zip.install
 Install-ChocoIfNotAlready sourcetree
 Install-ChocoIfNotAlready tortoisegit
 Install-ChocoIfNotAlready Git-Credential-Manager-for-Windows
-Install-ChocoIfNotAlready github
 Install-ChocoIfNotAlready vlc
 Install-ChocoIfNotAlready skype
 Install-ChocoIfNotAlready sysinternals
@@ -67,6 +66,7 @@ Install-ChocoIfNotAlready geforce-experience
 Install-ChocoIfNotAlready typescript
 Install-ChocoIfNotAlready adobe-creative-cloud
 Install-ChocoIfNotAlready snagit
+Install-ChocoIfNotAlready github
 
 #Install-ChocoIfNotAlready nodejs.install
 #Install-ChocoIfNotAlready Jump-Location
