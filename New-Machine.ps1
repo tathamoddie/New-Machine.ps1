@@ -57,7 +57,7 @@ Install-ChocoIfNotAlready treesizefree
 Install-ChocoIfNotAlready speccy
 Install-ChocoIfNotAlready f.lux
 Install-ChocoIfNotAlready lockhunter
-Install-ChocoIfNotAlready rufus.install
+Install-ChocoIfNotAlready rufus
 Install-ChocoIfNotAlready vmwareworkstation
 Install-ChocoIfNotAlready crystaldiskmark
 Install-ChocoIfNotAlready chutzpah
