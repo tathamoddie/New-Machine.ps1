@@ -96,25 +96,25 @@ Install-ChocoIfNotAlready github
 #[Environment]::SetEnvironmentVariable('GIT_SSH', $PlinkPath, [EnvironmentVariableTarget]::User)
 #$env:GIT_SSH = $PlinkPath
 
-if ($env:Path.Contains("git"))
-{
+#if ($env:Path.Contains("git"))
+#{
 
-"Setting git identity"
-git status
+#"Setting git identity"
+#git status
 git config --global user.name "Stephen Price"
 git config --global user.email "stephen@lythixdesigns.com"
 
-if ((& git config push.default) -eq $null)
-{
-    "Setting git push behaviour to squelch the 2.0 upgrade message"
-    git config --global push.default simple
-}
+#if ((& git config push.default) -eq $null)
+#{
+#    "Setting git push behaviour to squelch the 2.0 upgrade message"
+#    git config --global push.default simple
+#}
 
-"Setting git aliases"
-git config --global alias.st "status"
-git config --global alias.co "checkout"
-git config --global alias.df "diff"
-git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+#"Setting git aliases"
+#git config --global alias.st "status"
+#git config --global alias.co "checkout"
+#git config --global alias.df "diff"
+#git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
 }
 
