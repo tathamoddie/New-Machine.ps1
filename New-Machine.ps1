@@ -27,8 +27,7 @@ if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
 @(
     "google-chrome-x64",
     "git.install",
-    "SublimeText3",
-    "SublimeText3.PackageControl",
+    "visualstudiocode",
     "fiddler4",
     "Jump-Location",
     "slack",
