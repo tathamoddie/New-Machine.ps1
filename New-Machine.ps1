@@ -56,6 +56,9 @@ git config --global alias.co "checkout"
 git config --global alias.df "diff"
 git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 
+Write-Progress -Activity "Setting VS Code as the Git editor"
+git config --global core.editor "code --wait"
+
 Write-Progress -Activity "Setting PS aliases"
 if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
     Add-Content $PROFILE "`r`n`r`nSet-Alias -Name st -Value (Join-Path `$env:ProgramFiles 'Sublime Text 3\sublime_text.exe')"
