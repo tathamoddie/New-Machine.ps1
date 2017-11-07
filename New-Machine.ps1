@@ -59,6 +59,10 @@ git config --global alias.lg "log --graph --oneline --decorate"
 Write-Progress -Activity "Setting VS Code as the Git editor"
 git config --global core.editor "code --wait"
 
+Write-Progress -Activity "Installing PoshGit"
+Install-Module posh-git -Scope CurrentUser
+Add-PoshGitToProfile
+
 Write-Progress -Activity "Enabling Office smileys"
 if (Test-Path HKCU:\Software\Microsoft\Office\16.0) {
     if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback)) {
