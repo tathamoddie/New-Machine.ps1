@@ -8,7 +8,7 @@ if (-not $IsAdmin) {
     throw "You need to run this script elevated"
 }
 
-Write-Progress -Activity "Setting exeuction policy"
+Write-Progress -Activity "Setting execution policy"
 Set-ExecutionPolicy RemoteSigned
 
 Write-Progress -Activity "Ensuring PS profile exists"
