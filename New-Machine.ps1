@@ -54,7 +54,7 @@ Write-Progress -Activity "Setting git aliases"
 git config --global alias.st "status"
 git config --global alias.co "checkout"
 git config --global alias.df "diff"
-git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+git config --global alias.lg "log --graph --oneline --decorate"
 
 Write-Progress -Activity "Setting VS Code as the Git editor"
 git config --global core.editor "code --wait"
