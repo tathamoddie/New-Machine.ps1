@@ -59,11 +59,6 @@ git config --global alias.lg "log --graph --oneline --decorate"
 Write-Progress -Activity "Setting VS Code as the Git editor"
 git config --global core.editor "code --wait"
 
-Write-Progress -Activity "Setting PS aliases"
-if ((Get-Alias -Name st -ErrorAction SilentlyContinue) -eq $null) {
-    Add-Content $PROFILE "`r`n`r`nSet-Alias -Name st -Value (Join-Path `$env:ProgramFiles 'Sublime Text 3\sublime_text.exe')"
-}
-
 Write-Progress -Activity "Enabling Office smileys"
 if (Test-Path HKCU:\Software\Microsoft\Office\16.0) {
     if (-not (Test-Path HKCU:\Software\Microsoft\Office\16.0\Common\Feedback)) {
