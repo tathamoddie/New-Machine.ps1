@@ -97,6 +97,16 @@ if ((Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\A
     Get-Process explorer | Stop-Process
 }
 
+Write-Progress "Making c:\code"
+if (-not (Test-Path c:\code)) {
+    New-Item c:\code -ItemType Directory
+}
+
+Write-Progress "Making c:\temp"
+if (-not (Test-Path c:\temp)) {
+    New-Item c:\temp -ItemType Directory
+}
+
 Write-Progress "Enabling Windows Subsystem for Linux"
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
