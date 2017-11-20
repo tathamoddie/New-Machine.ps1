@@ -74,6 +74,17 @@ else {
     Write-Warning "Couldn't find a compatible install of Office"
 }
 
+Write-Progress -Activity "Disabling Outlook notifications"
+if (Test-Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences) {
+    Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name ChangePointer -Value 0
+    Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name NewmailDesktopAlerts -Value 0
+    Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name PlaySound -Value 0
+    Set-ItemProperty -Path HKCU:\Software\Microsoft\Office\16.0\Outlook\Preferences -Name ShowEnvelope -Value 0
+}
+else {
+    Write-Warning "Couldn't find a compatible install of Office"
+}
+
 Write-Progress "Hiding desktop icons"
 if ((Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\).HideIcons -ne 1) {
     Set-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\ -Name HideIcons -Value 1
