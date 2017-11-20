@@ -86,5 +86,8 @@ if ((Get-ItemProperty HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\A
     Get-Process explorer | Stop-Process
 }
 
+Write-Progress "Enabling Windows Subsystem for Linux"
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
 Write-Progress -Activity "Reloading PS profile"
 . $PROFILE
