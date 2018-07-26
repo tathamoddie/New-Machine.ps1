@@ -25,7 +25,7 @@ if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
 }
 
 @(
-    "google-chrome-x64",
+    "googlechrome",
     "git.install",
     "visualstudiocode",
     "fiddler4",
