@@ -29,7 +29,6 @@ if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
     "git.install",
     "visualstudiocode",
     "fiddler",
-    "slack",
     "snagit"
 ) | % {
     Write-Progress -Activity "Installing $_"
