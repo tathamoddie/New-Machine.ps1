@@ -28,7 +28,7 @@ if (-not ((Get-PackageSource -Name chocolatey).IsTrusted)) {
     "GoogleChrome",
     "git.install",
     "visualstudiocode",
-    "fiddler4",
+    "fiddler",
     "slack",
     "snagit"
 ) | % {
